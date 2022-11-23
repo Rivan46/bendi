@@ -1,0 +1,4 @@
+此为本地执行文件
+
+# > 嘀嗒出行
+^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/cx\/startup\? url script-response-body startup.js
