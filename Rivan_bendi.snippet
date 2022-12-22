@@ -1,7 +1,8 @@
-# >Rivan自用配置
+# >>>  Rivan自用配置
+# >>>  2022-12-22
 #经常不更新，总是嫖别人的
 
-#b站收藏主机名-grpc.biliapi.net排除即可点开b站收藏
+
 
 [general]
 
@@ -57,7 +58,7 @@ event-interaction streaming-ui-check.js, tag=流媒体解锁查询, img-url=arro
 ^https:\/\/photos\.adobe\.io\/v2\/accounts* url script-response-body lightroom.js
 # = 彩云天气VIP
 ^https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) url script-response-body caiyun.js
-# = WPS会员
+# =WPS会员
 ^https?:\/\/account\.wps\.cn\/api\/users url script-response-body wps.js
 # = 万能小组件会员
 ^https:\/\/top-widgets-api\.xiaozujian\.com\/api\/app\/config\/userConfig url script-response-body widgets.js
@@ -139,6 +140,8 @@ event-interaction streaming-ui-check.js, tag=流媒体解锁查询, img-url=arro
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) url reject
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext url reject
 
+
+
 # Netflix评分（yichahucha）
 ^https?://ios[-\w]*\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D url script-request-header nf_rating.js
 ^https?://ios[-\w]*\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D url script-response-body nf_rating.js
@@ -166,18 +169,7 @@ General.snippet, tag=神机重定向, update-interval=86400, opt-parser=false, e
 
 
 [dns]
-prefer-doh3
-no-ipv6
-no-system
-server=223.5.5.5
-server=119.29.29.29
-server=114.114.114.114
-doh-server = https://223.5.5.5/dns-query, https://223.6.6.6/dns-query
-server=/*icloud.com/119.29.29.29
-server=/*icloud.com.cn/119.29.29.29
-server=/*qq.com/119.29.29.29
-server=/*tencent.com/119.29.29.29
-server=/*weixin.com/119.29.29.29
+
 
 
 
@@ -190,19 +182,19 @@ server=/*weixin.com/119.29.29.29
 static=WeChat, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WeChat.png
 static=港台番剧, direct, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_2.png
 static=Netflix, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-static=TikTok, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
+static=TikTok, proxy,  img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
 static=Google, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
 static=YouTube, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 static=Instagram, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Instagram.png
 static=Twitter, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
 static=GitHub, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
 static=Steam, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
-static=GoogleVoice, proxy, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/whatsapp.png
+static=GoogleVoice, proxy,  img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/whatsapp.png
 static=Telegram, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 
 static=Spotify, direct, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
 
-static=Apple, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+static=Apple, direct, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 
 #默认设置10分钟测速一次
 
@@ -223,7 +215,11 @@ China.snippet, tag=国内网站, force-policy=direct, update-interval=172800, op
 
 
 [filter_local]
-host, pgdt.gtimg.cn, reject
+host-SUFFIX, xiaohongshu.com, IP
+host, cdn.jsdelivr.net, direct
+host-suffix, dsxys.ink, direct
+host-keyword, *.yximgs.com, direct
+host, exp.notion.so, TikTok
 host, www.ikandy.fun, direct
 host, optimus-ads.amap.com, reject
 # > 知乎AD屏蔽,以下规则请放置在filter_local最顶部
@@ -243,6 +239,9 @@ host-suffix, doubleclick.net, reject
 host-suffix, safebrowsing.urlsec.qq.com, reject
 host-suffix, safebrowsing.googleapis.com, reject
 host-suffix, lookup.api.bsb.baidu.com, reject
+host-suffix, doppiocdn.com, TikTok
+host-suffix, static-clst.avgle.com, TikTok
+host-suffix, limbopro.xyz, proxy
 host, ad.12306.cn, direct
 # 贴吧屏蔽广告域名
 IP-CIDR,180.76.76.200/32,REJECT
